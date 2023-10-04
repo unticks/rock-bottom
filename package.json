@@ -20,5 +20,5 @@
     "build": "parcel build src/index.html"
   },
   "author": "Sebastian Lauwers",
-  "license": "ISC"
+  "license": "(MIT OR Apache-2.0)"
 }
