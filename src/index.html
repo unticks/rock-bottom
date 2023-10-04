@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rock Bottom Calculator</title>
+    <link rel="stylesheet" href="rbc.scss">
+  </head>
+  <body>
+    <div class="container">
+      <section class="hero">
+        <div class="hero-body">
+          <p class="title">
+            Rock Bottom Calculator
+          </p>
+          <p class="subtitle">
+            Figure out exactly how much gas you need to get back safely
+          </p>
+        </div>
+      </section><!-- .hero -->
+
+      <section class="section">
+        <nav class="level">
+          <div class="level-item has-text-centered">
+            <label class="checkbox">
+              <input type="checkbox" id="with-air-share">
+              Air sharing
+            </label>
+          </div>
+
+          <div class="level-item has-text-centered">
+            <label class="checkbox">
+              <input type="checkbox" id="with-safety-stop" checked>
+              Include safety stop
+            </label>
+          </div>
+        </nav>
+
+        <div class="columns">
+          <div class="column">
+            <div class="field">
+              <label class="label">
+                Depth (<abbr title="meters">m</abbr>)
+                <input class="input" type="number" id="depth" value="40" pattern="[0-9]*" inputmode="numeric" required>
+              </label>
+            </div><!-- .field -->
+          </div><!-- .column -->
+
+          <div class="column">
+            <div class="field">
+              <label class="label">
+                Bottom time (<abbr title="minutes">min</abbr>)
+                <input class="input" type="number" id="bottom-time" value="1" pattern="[0-9]*" inputmode="numeric" required>
+              </label>
+            </div><!-- .field -->
+          </div><!-- .column -->
+
+          <div class="column">
+            <div class="field">
+              <label class="label">
+                Rate of ascent (<abbr title="meters per minute">m/min</abbr>)
+                <input class="input" type="number" id="ascent-rate" value="9" pattern="[0-9]*" inputmode="numeric" required>
+              </label>
+            </div><!-- .field -->
+          </div><!-- .column -->
+        </div><!-- .columns -->
+
+        <div class="columns">
+          <div class="column">
+            <div class="field">
+              <label class="label">
+                <abbr title="Surface Air Consumption">SAC</abbr> Rate
+                (<abbr title="liters per minute">L/min</abbr>)
+                <input class="input" type="number" id="sac" value="30" pattern="[0-9]*" inputmode="numeric" required>
+              </label>
+            </div><!-- .field -->
+          </div><!-- .column -->
+
+          <div class="column is-hidden" id="form-diver-2-sac">
+            <div class="field">
+              <label class="label">
+                <abbr title="Surface Air Consumption">SAC</abbr> Rate diver 2
+                (<abbr title="liters per minute">L/min</abbr>)
+                <input class="input" type="number" id="sac-diver-2" value="30" pattern="[0-9]*" inputmode="numeric" required>
+              </label>
+            </div><!-- .field -->
+          </div><!-- .column -->
+
+          <div class="column">
+            <div class="field">
+              <label class="label" for="cylinder-size">Cylinder size</label>
+              <div class="control">
+                <div class="select">
+                  <select id="cylinder-size">
+                    <option value="12">12 litres</option>
+                    <option value="15">15 litres</option>
+                    <option value="24" selected>Double 12 litres</option>
+                    <option value="30">Double 15 litres</option>
+                  </select>
+                </div><!-- .select -->
+              </div><!-- .control -->
+            </div><!-- .field -->
+          </div><!-- .column -->
+        </div><!-- .columns -->
+
+        <div class="columns" id="safety-stop-form-elements">
+          <div class="column">
+            <div class="field">
+              <label class="label">
+                Safety stop depth (<abbr title="meters">m</abbr>)
+                <input class="input" type="number" id="safety-stop-depth" pattern="[0-9]*" inputmode="numeric" value="6">
+              </label>
+            </div><!-- .field -->
+          </div><!-- .column -->
+
+          <div class="column">
+            <div class="field">
+              <label class="label">
+                Safety stop duration (<abbr title="minutes">min</abbr>)
+                <input class="input" type="number" id="safety-stop-duration" pattern="[0-9]*" inputmode="numeric" value="3">
+              </label>
+            </div><!-- .field -->
+          </div><!-- .column -->
+        </div><!-- .columns -->
+
+        <nav class="level">
+          <div class="level-item">
+            <div class="control">
+              <button id="calculate-btn" class="button is-link">Calculate</button>
+            </div>
+          </div>
+
+          <div class="level-item">
+            <pre class="is-hidden" id="result"></pre>
+          </div>
+        </nav>
+      </section>
+    </div><!-- .container -->
+
+    <script type="module" src="rbc.ts"></script>
+  </body>
+</html>
