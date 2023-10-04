@@ -67,17 +67,25 @@ class Calculator {
   }
 }
 
-function depth_consumption(depth: number, duration: number, sac1: number, sac2: number): number {
+export function depth_consumption(depth: number, duration: number, sac1: number, sac2: number): number {
   const ata = depth_to_ata(depth);
   return duration * (sac1 * ata) + duration * (sac2 * ata);
 }
 
 export function depth_to_ata(depth: number): number {
-  return depth / 10 + 1;
+  if (depth >= 0) {
+    return depth / 10 + 1;
+  } else {
+    return NaN;
+  }
 }
 
-function calculate_bars(litres: number, cylinder_size: number): number {
-  return Math.round(litres / cylinder_size);
+export function calculate_bars(litres: number, cylinder_size: number): number {
+  if (litres >= 0 && cylinder_size >= 0) {
+    return Math.round(litres / cylinder_size);
+  } else {
+    return NaN;
+  }
 }
 
 function updateAirShare(): void {
