@@ -17,7 +17,8 @@
   "scripts": {
     "test": "jest",
     "start": "parcel src/index.html",
-    "build": "parcel build src/index.html"
+    "build": "parcel build src/index.html",
+    "build-gh-pages": "parcel build --public-url /rock-bottom src/index.html"
   },
   "author": "Sebastian Lauwers",
   "license": "(MIT OR Apache-2.0)"

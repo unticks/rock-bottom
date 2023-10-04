@@ -21,7 +21,7 @@ jobs:
           cache: 'npm'
       - run: npm ci
       - run: npm test
-      - run: npm run build
+      - run: npm run build-gh-pages
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v2
@@ -41,7 +41,7 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
-          
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
