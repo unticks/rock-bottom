@@ -11,21 +11,21 @@ class Calculator {
   ss_duration: number;
 
   constructor() {
-    const select = document.getElementById("cylinder-size");
+    const select = (<HTMLSelectElement>document.getElementById("cylinder-size"));
 
-    this.depth = document.getElementById("depth").valueAsNumber;
-    this.bottom_time = document.getElementById("bottom-time").valueAsNumber;
-    this.ascent_rate = document.getElementById("ascent-rate").valueAsNumber;
-    this.air_share = document.getElementById("with-air-share").checked;
-    this.sac = document.getElementById("sac").valueAsNumber;
+    this.depth = (<HTMLInputElement>document.getElementById("depth")).valueAsNumber;
+    this.bottom_time = (<HTMLInputElement>document.getElementById("bottom-time")).valueAsNumber;
+    this.ascent_rate = (<HTMLInputElement>document.getElementById("ascent-rate")).valueAsNumber;
+    this.air_share = (<HTMLInputElement>document.getElementById("with-air-share")).checked;
+    this.sac = (<HTMLInputElement>document.getElementById("sac")).valueAsNumber;
     this.sac_diver_2 =
-      this.air_share ? document.getElementById("sac-diver-2").valueAsNumber : 0;
+      this.air_share ? (<HTMLInputElement>document.getElementById("sac-diver-2")).valueAsNumber : 0;
     this.cylinder_size = parseInt(select.options[select.selectedIndex].value);
-    this.safety_stop = document.getElementById("with-safety-stop").checked;
+    this.safety_stop = (<HTMLInputElement>document.getElementById("with-safety-stop")).checked;
     this.ss_depth =
-      this.safety_stop ? document.getElementById("safety-stop-depth").valueAsNumber : 0;
+      this.safety_stop ? (<HTMLInputElement>document.getElementById("safety-stop-depth")).valueAsNumber : 0;
     this.ss_duration =
-      this.safety_stop ? document.getElementById("safety-stop-duration").valueAsNumber : 0;
+      this.safety_stop ? (<HTMLInputElement>document.getElementById("safety-stop-duration")).valueAsNumber : 0;
   }
 
   bottom_time_consumption(): number {
@@ -55,7 +55,7 @@ class Calculator {
       this.bottom_time_consumption() + this.safety_stop_consumption() + this.travel_consumption());
   }
 
-  run() {
+  run(): void {
     const pre = document.getElementById("result");
 
     const gas = this.calculate_consumption();
@@ -72,7 +72,7 @@ function depth_consumption(depth: number, duration: number, sac1: number, sac2: 
   return duration * (sac1 * ata) + duration * (sac2 * ata);
 }
 
-function depth_to_ata(depth: number): number {
+export function depth_to_ata(depth: number): number {
   return depth / 10 + 1;
 }
 
@@ -80,9 +80,9 @@ function calculate_bars(litres: number, cylinder_size: number): number {
   return Math.round(litres / cylinder_size);
 }
 
-function updateAirShare() {
-  const checkbox = document.getElementById("with-air-share");
-  const input = document.getElementById("form-diver-2-sac");
+function updateAirShare(): void {
+  const checkbox = (<HTMLInputElement>document.getElementById("with-air-share"));
+  const input = (<HTMLInputElement>document.getElementById("form-diver-2-sac"));
 
   if (checkbox.checked) {
     input.classList.remove("is-hidden");
@@ -91,8 +91,8 @@ function updateAirShare() {
   }
 }
 
-function updateSafetyStop() {
-  const checkbox = document.getElementById("with-safety-stop");
+function updateSafetyStop(): void {
+  const checkbox = (<HTMLInputElement>document.getElementById("with-safety-stop"));
   const row = document.getElementById("safety-stop-form-elements");
 
   if (checkbox.checked) {
@@ -102,14 +102,14 @@ function updateSafetyStop() {
   }
 }
 
-function updateSafetyStopDuration() {
-  if (document.getElementById("with-safety-stop").checked) {
-    document.getElementById("safety-stop-duration").value =
-      document.getElementById("depth").valueAsNumber >= 30 ? 5 : 3;
+function updateSafetyStopDuration(): void {
+  if ((<HTMLInputElement>document.getElementById("with-safety-stop")).checked) {
+    (<HTMLInputElement>document.getElementById("safety-stop-duration")).value =
+      String((<HTMLInputElement>document.getElementById("depth")).valueAsNumber >= 30 ? 5 : 3);
   }
 }
 
-function init() {
+function init(): void {
   document.getElementById("calculate-btn").addEventListener("click", () => {
     const calc = new Calculator();
     calc.run();

@@ -42,7 +42,7 @@
             <div class="field">
               <label class="label">
                 Depth (<abbr title="meters">m</abbr>)
-                <input class="input" type="number" id="depth" value="40" pattern="[0-9]*" inputmode="numeric" required>
+                <input class="input" type="number" id="depth" value="40" pattern="[0-9]*" inputmode="numeric" min="0" required>
               </label>
             </div><!-- .field -->
           </div><!-- .column -->
@@ -51,7 +51,7 @@
             <div class="field">
               <label class="label">
                 Bottom time (<abbr title="minutes">min</abbr>)
-                <input class="input" type="number" id="bottom-time" value="1" pattern="[0-9]*" inputmode="numeric" required>
+                <input class="input" type="number" id="bottom-time" value="1" pattern="[0-9]*" inputmode="numeric" min="0" required>
               </label>
             </div><!-- .field -->
           </div><!-- .column -->
@@ -60,7 +60,7 @@
             <div class="field">
               <label class="label">
                 Rate of ascent (<abbr title="meters per minute">m/min</abbr>)
-                <input class="input" type="number" id="ascent-rate" value="9" pattern="[0-9]*" inputmode="numeric" required>
+                <input class="input" type="number" id="ascent-rate" value="9" pattern="[0-9]*" inputmode="numeric" min="1" required>
               </label>
             </div><!-- .field -->
           </div><!-- .column -->
@@ -72,7 +72,7 @@
               <label class="label">
                 <abbr title="Surface Air Consumption">SAC</abbr> Rate
                 (<abbr title="liters per minute">L/min</abbr>)
-                <input class="input" type="number" id="sac" value="30" pattern="[0-9]*" inputmode="numeric" required>
+                <input class="input" type="number" id="sac" value="30" pattern="[0-9]*" inputmode="numeric" min="1" required>
               </label>
             </div><!-- .field -->
           </div><!-- .column -->
@@ -82,7 +82,7 @@
               <label class="label">
                 <abbr title="Surface Air Consumption">SAC</abbr> Rate diver 2
                 (<abbr title="liters per minute">L/min</abbr>)
-                <input class="input" type="number" id="sac-diver-2" value="30" pattern="[0-9]*" inputmode="numeric" required>
+                <input class="input" type="number" id="sac-diver-2" value="30" pattern="[0-9]*" inputmode="numeric" min="1" required>
               </label>
             </div><!-- .field -->
           </div><!-- .column -->
@@ -109,7 +109,7 @@
             <div class="field">
               <label class="label">
                 Safety stop depth (<abbr title="meters">m</abbr>)
-                <input class="input" type="number" id="safety-stop-depth" pattern="[0-9]*" inputmode="numeric" value="6">
+                <input class="input" type="number" id="safety-stop-depth" pattern="[0-9]*" inputmode="numeric" value="6" min="0">
               </label>
             </div><!-- .field -->
           </div><!-- .column -->
@@ -118,7 +118,7 @@
             <div class="field">
               <label class="label">
                 Safety stop duration (<abbr title="minutes">min</abbr>)
-                <input class="input" type="number" id="safety-stop-duration" pattern="[0-9]*" inputmode="numeric" value="3">
+                <input class="input" type="number" id="safety-stop-duration" pattern="[0-9]*" inputmode="numeric" value="3" min="0">
               </label>
             </div><!-- .field -->
           </div><!-- .column -->
